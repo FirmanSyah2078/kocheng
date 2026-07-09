@@ -31,6 +31,7 @@ erDiagram
         string name
         decimal price
         int stock
+        string image_url
         timestamp created_at
     }
     transactions {
@@ -40,6 +41,8 @@ erDiagram
         decimal total_amount
         decimal payment_amount
         decimal change_amount
+        enum status
+        enum payment_method
         timestamp created_at
     }
     transaction_items {
@@ -58,10 +61,10 @@ erDiagram
 | Kolom | Tipe Data | Atribut / Constraint | Deskripsi |
 | :--- | :--- | :--- | :--- |
 | **id** | INT | PRIMARY KEY, AUTO_INCREMENT | ID unik user |
-| **name** | VARCHAR(100) | NOT NULL | Nama kasir/admin |
+| **name** | VARCHAR(100) | NOT NULL | Nama user/admin |
 | **email** | VARCHAR(100) | UNIQUE, NOT NULL | Email login |
 | **password** | VARCHAR(255) | NOT NULL | Password terenkripsi |
-| **role** | ENUM('admin', 'cashier') | DEFAULT 'cashier' | Hak akses sistem |
+| **role** | ENUM('admin', 'user') | DEFAULT 'user' | Hak akses sistem |
 | **created_at** | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP | Waktu pendaftaran |
 
 ### 2. Tabel: `categories`
@@ -80,17 +83,20 @@ erDiagram
 | **name** | VARCHAR(150) | NOT NULL | Nama produk |
 | **price** | DECIMAL(10,2) | NOT NULL | Harga produk |
 | **stock** | INT | NOT NULL, DEFAULT 0 | Stok saat ini |
+| **image_url** | VARCHAR(255) | NULLable | URL gambar produk |
 | **created_at** | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP | Waktu penambahan produk |
 
 ### 4. Tabel: `transactions`
 | Kolom | Tipe Data | Atribut / Constraint | Deskripsi |
 | :--- | :--- | :--- | :--- |
 | **id** | INT | PRIMARY KEY, AUTO_INCREMENT | ID unik transaksi |
-| **user_id** | INT | FOREIGN KEY (`users.id`), NOT NULL | Kasir yang menangani |
+| **user_id** | INT | FOREIGN KEY (`users.id`), NOT NULL | Pelanggan yang melakukan transaksi |
 | **invoice_number** | VARCHAR(50) | UNIQUE, NOT NULL | Nomor invoice transaksi |
 | **total_amount** | DECIMAL(10,2) | NOT NULL | Total harga belanja |
 | **payment_amount**| DECIMAL(10,2) | NOT NULL | Uang yang dibayarkan pelanggan |
 | **change_amount** | DECIMAL(10,2) | NOT NULL | Uang kembalian |
+| **status** | ENUM('pending', 'completed', 'cancelled') | DEFAULT 'pending' | Status pembayaran transaksi |
+| **payment_method**| ENUM('qris', 'ovo', 'dana', 'paypal','bayar ditempat') | NULLable | Metode pembayaran yang digunakan |
 | **created_at** | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP | Waktu transaksi dilakukan |
 
 ### 5. Tabel: `transaction_items`
@@ -111,7 +117,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    role ENUM('admin', 'cashier') DEFAULT 'cashier',
+    role ENUM('admin', 'user') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -128,6 +134,7 @@ CREATE TABLE products (
     name VARCHAR(150) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL DEFAULT 0,
+    image_url VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );
@@ -139,6 +146,8 @@ CREATE TABLE transactions (
     total_amount DECIMAL(10, 2) NOT NULL,
     payment_amount DECIMAL(10, 2) NOT NULL,
     change_amount DECIMAL(10, 2) NOT NULL,
+    status ENUM('pending', 'completed', 'cancelled') DEFAULT 'pending',
+    payment_method ENUM('qris', 'ovo', 'dana', 'paypal'),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
