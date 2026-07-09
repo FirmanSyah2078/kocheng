@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,12 +18,15 @@ class TransactionFactory extends Factory
      */
     public function definition(): array
     {
+        $status = fake()->randomElement(['pending', 'completed', 'cancelled']);
         return [
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(),
             'invoice_number' => 'INV-' . date('Ymd') . '-' . fake()->unique()->numberBetween(1000, 9999),
             'total_amount' => 0, 
             'payment_amount' => 0,
             'change_amount' => 0,
+            'status' => $status,
+            'payment_method' => $status === 'completed' ? fake()->randomElement(['qris', 'ovo', 'dana', 'paypal', 'bayar ditempat']) : null,
         ];
     }
 }

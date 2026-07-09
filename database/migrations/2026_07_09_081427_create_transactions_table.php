@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('total_amount', 10, 2);
             $table->decimal('payment_amount', 10, 2);
             $table->decimal('change_amount', 10, 2);
+            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
+            $table->enum('payment_method', ['qris', 'ovo', 'dana', 'paypal', 'bayar ditempat'])->nullable();
             $table->timestamps();
         });
     }

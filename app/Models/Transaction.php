@@ -9,7 +9,7 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'invoice_number', 'total_amount', 'payment_amount', 'change_amount'];
+    protected $fillable = ['user_id', 'invoice_number', 'total_amount', 'payment_amount', 'change_amount','status','payment_method'];
     public function user() {
         return $this->belongsTo(User::class);
     }
