@@ -19,7 +19,7 @@
                 <form action="{{ route('product') }}" method="GET" id="filter-form">
 
                     <button type="button"
-                        class="categories flex items-center cursor-pointer border-t border-secondary/10 shadow rounded-2xl py-1.5 px-4 bg-neutral transition-all duration-300 group-[.menu-open]:rounded-b-none">
+                        class="categories flex items-center cursor-pointer border-t border-secondary/10 shadow rounded-2xl py-1.5 px-4 bg-neutral transition-all duration-500 group-[.menu-open]:rounded-b-none">
                         Categories
                         @if (count($selectedCategories) > 0)
                             <span
@@ -27,11 +27,11 @@
                             </span>
                         @endif
                         <span
-                            class="icon-[mdi--keyboard-arrow-down] categories-arrow text-xl transition-transform duration-300 ml-2"></span>
+                            class="icon-[mdi--keyboard-arrow-down] categories-arrow text-xl transition-transform duration-500 ml-2"></span>
                     </button>
 
                     <div
-                        class="categories-option absolute flex shadow p-4 gap-2 transition-all duration-300 ease-in-out flex-col opacity-0 invisible -translate-y-2 w-full rounded-b-2xl bg-neutral top-full left-0 group-[.menu-open]:opacity-100 group-[.menu-open]:visible group-[.menu-open]:translate-y-0">
+                        class="categories-option z-10 absolute flex shadow p-4 gap-2 transition-all duration-500 ease-in-out flex-col opacity-0 invisible -translate-y-2 w-full  bg-neutral top-full left-0 group-[.menu-open]:opacity-100 group-[.menu-open]:visible group-[.menu-open]:translate-y-0">
 
 
                         @foreach ($categories as $category)

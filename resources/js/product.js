@@ -1,11 +1,13 @@
 const categoriesWrapper = document.getElementById("categories-wrapper");
 const categoriesButton = categoriesWrapper.querySelector(".categories");
 const categoriesArrow = categoriesButton.querySelector(".categories-arrow");
+const categoriesOption = categoriesWrapper.querySelector(".categories-option");
 
 categoriesButton.addEventListener("click", () => {
     categoriesWrapper.classList.toggle("menu-open");
 
     categoriesArrow.classList.toggle("rotate-180");
+    categoriesOption.classList.toggle("rounded-b-2xl");
 });
 
 const allCartButtons = document.querySelectorAll(".cart-button");
