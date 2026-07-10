@@ -31,7 +31,8 @@
                     </button>
 
                     <div
-                        class="categories-option z-10 absolute flex shadow p-4 gap-2 transition-all duration-500 ease-in-out flex-col opacity-0 invisible -translate-y-2 w-full  bg-neutral top-full left-0 group-[.menu-open]:opacity-100 group-[.menu-open]:visible group-[.menu-open]:translate-y-0">
+                        class="categories-option z-10 absolute flex shadow p-4 gap-2 transition-all duration-500 ease-in-out flex-col opacity-0 invisible -translate-y-2 w-full  bg-neutral top-full left-0
+                        group-[.menu-open]:opacity-100 group-[.menu-open]:visible group-[.menu-open]:translate-y-0">
 
 
                         @foreach ($categories as $category)

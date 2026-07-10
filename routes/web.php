@@ -26,6 +26,10 @@ Route::get('/contact', function () {
     return view('users.contact');
 })->name('contact');
 
+Route::get('/cart', function () {
+    return view('users.cart');
+})->name('cart');
+
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 
 Route::get('/dashboard/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.delete');
