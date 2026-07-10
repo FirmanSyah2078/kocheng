@@ -16,7 +16,7 @@ class UserController extends Controller
         if ($tab == 'categories') {
             $data = Category::all();
         } elseif ($tab == 'product') {
-            $data = Product::all();
+            $data = Product::with('category')->get();
         } else {
             $data = User::all();
         }

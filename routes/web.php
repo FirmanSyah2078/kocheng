@@ -39,13 +39,19 @@ Route::get('/payment', function () {
 
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 
-Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
-
-// Dashboard
+// Users
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard/delete/{id}', [UserController::class, 'destroy'])->name('dashboard.delete');
 Route::get('/dashboard/edit/{id}', [UserController::class, 'edit'])->name('dashboard.edit');
 Route::post('/dashboard/update/{id}', [UserController::class, 'update'])->name('dashboard.update');
+
+// Product
+Route::get('/product/delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
+
+// Categories
+Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-Route::post('/dashboard/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 

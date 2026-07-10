@@ -8,6 +8,11 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    public function destroy($id)
+    {
+        Category::findOrFail($id)->delete();
+        return redirect()->route('dashboard.index');
+    }
     public function edit($id)
     {
         $data = Category::findOrFail($id);
