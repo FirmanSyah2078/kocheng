@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@pos.id',
             'role' => 'admin',
             'password' => bcrypt('password123'),
+            'status' => 'active',
         ]);
 
         User::factory()->create([
@@ -25,11 +26,13 @@ class UserSeeder extends Seeder
             'email' => 'user@pos.id',
             'role' => 'user',
             'password' => bcrypt('password123'),
+            'status' => 'active',
         ]);
 
         User::factory(10)->create([
             'role' => 'user',
             'password' => Hash::make('user123'),
+            'status' => 'active',
         ]);
     }
 }

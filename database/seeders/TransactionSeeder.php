@@ -31,7 +31,7 @@ class TransactionSeeder extends Seeder
         }
 
         Transaction::factory(5)->create([
-            'user_id' => fn () => $customers->random()->id,
+            'user_id' => fn() => $customers->random()->id,
         ])->each(function ($transaction) use ($products) {
             $this->createTransactionItems($transaction, $products);
         });
@@ -50,6 +50,8 @@ class TransactionSeeder extends Seeder
             TransactionItem::create([
                 'transaction_id' => $transaction->id,
                 'product_id' => $product->id,
+                'product_name' => $product->name,
+                'category_name' => $product->category->name,
                 'quantity' => $qty,
                 'price_at_sale' => $product->price,
                 'subtotal' => $subtotal,

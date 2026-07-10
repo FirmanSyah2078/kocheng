@@ -25,7 +25,9 @@
                 @if ($tab == 'users')
                     <th class="th-dashboard">ID</th>
                     <th class="th-dashboard">Name</th>
+                    <th class="th-dashboard">Email</th>
                     <th class="th-dashboard">Role</th>
+                    <th class="th-dashboard">Status</th>
                     <th class="th-dashboard">Action</th>
 
                     {{-- Table heading Product --}}
@@ -34,16 +36,17 @@
                     <th class="th-dashboard">Category</th>
                     <th class="th-dashboard">SKU</th>
                     <th class="th-dashboard">Product Name</th>
-                    <th class="th-dashboard">Description</th>
                     <th class="th-dashboard">Price</th>
                     <th class="th-dashboard">Stock</th>
-                    <th class="th-dashboard">Image</th>
+                    <th class="th-dashboard">Status</th>
                     <th class="th-dashboard">Action</th>
 
                     {{-- Table heading Categories --}}
                 @elseif ($tab == 'categories')
                     <th class="th-dashboard">ID</th>
                     <th class="th-dashboard">Categories Name</th>
+                    <th class="th-dashboard">Total Products</th>
+                    <th class="th-dashboard">Status</th>
                     <th class="th-dashboard">Action</th>
                 @endif
             </x-slot:header>
@@ -56,11 +59,13 @@
                         @if ($tab == 'users')
                             <td class="td-dashboard text-center">{{ $d['id'] }}</td>
                             <td class="td-dashboard">{{ $d['name'] }}</td>
+                            <td class="td-dashboard">{{ $d['email'] }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['role'] }}</td>
+                            <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard justify-center flex gap-2">
                                 <a href="{{ route('dashboard.edit', $d->id) }}">Edit</a>
                                 <a href="{{ route('dashboard.delete', $d->id) }}"
-                                    onclick="return confirm('Delete user?')">
+                                    onclick="return confirm('Delete {{ $d['name'] }}?')">
                                     Delete
                                 </a>
                             </td>
@@ -68,32 +73,32 @@
                             {{-- Table data Product --}}
                         @elseif ($tab == 'product')
                             <td class="td-dashboard text-center">{{ $d['id'] }}</td>
-                            <td class="td-dashboard">
-                                {{ $d->category->name ?? '' }}
+                            <td class="td-dashboard text-center">
+                                {{ $d->category->name }}
                             </td>
-                            <td class="td-dashboard">{{ $d['sku'] }}</td>
+                            <td class="td-dashboard text-center capitalize">{{ $d['sku'] }}</td>
                             <td class="td-dashboard">{{ $d['name'] }}</td>
-                            <td class="td-dashboard">{{ $d['describtion'] }}</td>
-                            <td class="td-dashboard">{{ $d['formatted_price'] }}</td>
-                            <td class="td-dashboard">{{ $d['stock'] }}</td>
-                            <td class="td-dashboard">
-                                <img src="{{ $d['image_url'] }}" class="w-10 h-10" alt="">
-                            </td>
+                            <td class="td-dashboard text-center capitalize">{{ $d['formatted_price'] }}</td>
+                            <td class="td-dashboard text-center">{{ $d['stock'] }}</td>
+                            <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard justify-center flex gap-2">
                                 <a href="{{ route('product.edit', $d->id) }}">Edit</a>
                                 <a href="{{ route('product.delete', $d->id) }}"
-                                    onclick="return confirm('Delete product?')">
+                                    onclick="return confirm('Delete {{ $d['name'] }}?')">
                                     Delete
                                 </a>
                             </td>
+
                             {{-- Table data Categories --}}
                         @elseif ($tab == 'categories')
                             <td class="td-dashboard text-center">{{ $d['id'] }}</td>
-                            <td class="td-dashboard">{{ $d['name'] }}</td>
+                            <td class="td-dashboard text-center">{{ $d['name'] }}</td>
+                            <td class="td-dashboard text-center">{{ $d->products_count }}</td>
+                            <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard justify-center flex gap-2">
                                 <a href="{{ route('categories.edit', $d->id) }}">Edit</a>
                                 <a href="{{ route('categories.delete', $d->id) }}"
-                                    onclick="return confirm('Delete categories?')">
+                                    onclick="return confirm('Delete {{ $d['name'] }}?')">
                                     Delete
                                 </a>
                             </td>

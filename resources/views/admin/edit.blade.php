@@ -27,6 +27,14 @@
                 </div>
 
                 <div class="mt-5">
+                    <label class="block text-sm text-secondary mb-2">Status</label>
+                    <select class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="status">
+                        <option value="active"{{ $data->status == 'active' ? 'selected' : '' }}>Active</option>
+                        <option value="inactive"{{ $data->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                    </select>
+                </div>
+
+                <div class="mt-5">
                     <button type="submit"
                         class="w-max p-2 rounded-md text-neutral bg-primary hover:bg-secondary transition-all duration-300">Save
                         changes</button>

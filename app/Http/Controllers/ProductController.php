@@ -19,13 +19,14 @@ class ProductController extends Controller
         $products = $query->get();
         $categories = Category::all();
 
+
         return view('users.product', compact('products', 'categories'));
     }
 
     public function destroy($id)
     {
         $data = Product::findOrFail($id);
-        $data->delete();
+        $data->update(['status' => 'inactive']);
 
         return redirect()->route('dashboard.index');
     }
@@ -33,19 +34,20 @@ class ProductController extends Controller
     public function edit($id)
     {
         $data = Product::findOrFail($id);
-        return view('admin.product_edit', compact('data'));
+        $categories = Category::where('status', 'active')->get();
+        return view('admin.product_edit', compact('data', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
         $data = Product::findOrFail($id);
         $data->update([
-            // 'category' => $request->name,
+            'category_id' => $request->category_id,
             'name' => $request->name,
             'describtion' => $request->describtion,
             'price' => $request->price,
             'stock' => $request->stock,
-            'category_id' => $request->category_id,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('dashboard.index');

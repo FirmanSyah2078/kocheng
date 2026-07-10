@@ -14,7 +14,7 @@ class UserController extends Controller
         $tab = $request->query('tab', 'users');
 
         if ($tab == 'categories') {
-            $data = Category::all();
+            $data = Category::withCount('products')->get();
         } elseif ($tab == 'product') {
             $data = Product::with('category')->get();
         } else {
@@ -27,7 +27,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $data = User::findOrFail($id);
-        $data->delete();
+        $data->update(['status' => 'inactive']);
 
         return redirect()->route('dashboard.index');
     }
@@ -45,6 +45,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
+            'status' => $request->status
         ]);
 
         return redirect()->route('dashboard.index');
