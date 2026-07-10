@@ -9,7 +9,7 @@
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900">
     <x-navbar/>
-    <main class="grow container mx-auto px-4 py-8">
+    <main class="grow container mx-auto px-4 py-4">
         {{ $slot }}
     </main>
     <x-footer/>

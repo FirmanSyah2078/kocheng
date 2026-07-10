@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('admin.dashboard', compact('users'));
+        $tab = $request->query('tab', 'users');
+
+        if ($tab == 'categories') {
+            $data = Category::all();
+        } else {
+            $data = User::all();
+        }
+
+        return view('admin.dashboard', compact('data', 'tab'));
     }
 
     public function destroy($id)
