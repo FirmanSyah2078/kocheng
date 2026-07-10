@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $tab = $request->query('tab', 'd');
+        $tab = $request->query('tab', 'users');
 
         if ($tab == 'categories') {
             $data = Category::all();
@@ -34,14 +34,14 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $d = User::findOrFail($id);
-        return view('admin.edit', compact('d'));
+        $data = User::findOrFail($id);
+        return view('admin.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
     {
-        $d = User::findOrFail($id);
-        $d->update([
+        $data = User::findOrFail($id);
+        $data->update([
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,

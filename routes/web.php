@@ -33,4 +33,5 @@ Route::get('/dashboard/delete/{id}', [UserController::class, 'destroy'])->name('
 Route::get('/dashboard/edit/{id}', [UserController::class, 'edit'])->name('dashboard.edit');
 Route::post('/dashboard/update/{id}', [UserController::class, 'update'])->name('dashboard.update');
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+Route::post('/dashboard/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 

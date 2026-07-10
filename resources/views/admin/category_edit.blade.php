@@ -1,16 +1,13 @@
 <x-layout>
     <div class="min-h-screen flex items-start justify-center">
         <div class="max-w-md w-full p-5 bg-neutral rounded-lg shadow-sm border border-neutral-300">
-
             <h2 class="mb-5">Edit Category</h2>
-            <form action="{{ route('dashboard.update', $d->id) }}" method="POST">
+            <form action="{{ route('categories.update', $data->id) }}" method="POST">
                 @csrf
 
-                <div>
-                    <label class="block text-sm text-secondary mb-2">Category Name</label>
-                    <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="name"
-                        value="{{ $d->name }}">
-                </div>
+                <label class="block text-sm text-secondary mb-2">Category Name</label>
+                <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="name"
+                    id="category_name" value="{{ $data->name }}">
 
                 <div class="mt-5">
                     <button type="submit"
@@ -20,6 +17,5 @@
 
             </form>
         </div>
-
     </div>
 </x-layout>
