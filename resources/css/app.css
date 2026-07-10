@@ -25,11 +25,3 @@
 .td-dashboard {
     @apply p-2;
 }
-
-.btn-table-edit {
-    @apply text-blue-600;
-}
-
-.btn-table-delete {
-    @apply text-red-600;
-}
