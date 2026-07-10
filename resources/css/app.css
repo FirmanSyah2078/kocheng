@@ -19,15 +19,15 @@
 }
 
 .th-dashboard {
-    @apply border border-black p-2 font-bold;
+    @apply p-2 font-bold;
 }
 
 .td-dashboard {
-    @apply border border-black p-2;
+    @apply p-2;
 }
 
 .btn-table-edit {
-    @apply text-blue-600 mr-2;
+    @apply text-blue-600;
 }
 
 .btn-table-delete {
