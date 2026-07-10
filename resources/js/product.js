@@ -36,4 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 350);
         });
     });
+
+
+    const addedCartIndicator = document.querySelector(".added-cart-indicator");
+
+    if (addedCartIndicator) {
+        setTimeout(() => {
+            addedCartIndicator.classList.add("success");
+        }, 100);
+
+        setTimeout(() => {
+            addedCartIndicator.classList.remove("success");
+            setTimeout(() => {
+                addedCartIndicator.remove();
+            }, 500);
+        }, 3000);
+    }
 });

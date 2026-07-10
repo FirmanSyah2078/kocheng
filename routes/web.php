@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,15 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('users.cart');
 })->name('cart');
+
+Route::post('/cart/update/{id}/{action}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::post('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+
+Route::get('/checkout', function () {
+    return view('users.checkout');
+})->name('checkout');
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 

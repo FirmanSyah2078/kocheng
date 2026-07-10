@@ -1,5 +1,14 @@
 <x-layout>
-    <div class=" flex flex-col gap-5">
+    <div class=" flex flex-col gap-5 ">
+        @if (session('success'))
+            <div id="cart-alert-container" class="added-cart-indicator fixed right-0  z-10 left-0 group">
+                <div
+                    class="w-fit h-fit p-5 rounded-2xl bg-primary text-neutral  absolute right-10 transition-all duration-500 ease-in-out opacity-0 translate-x-full invisible group-[.success]:opacity-100 group-[.success]:visible group-[.success]:translate-x-0">
+                    <p>{{ session('success') }}</p>
+                </div>
+            </div>
+        @endif
+
 
         <section class="flex h-full flex-col md:flex-row w-full justify-between items-start md:items-center gap-5">
             <div>
