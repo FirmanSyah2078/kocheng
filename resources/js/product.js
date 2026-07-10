@@ -1,4 +1,4 @@
-const categoriesWrapper = document.getElementById("categories-wrapper");
+const categoriesWrapper = document.querySelector("#categories-wrapper");
 const categoriesButton = categoriesWrapper.querySelector(".categories");
 const categoriesArrow = categoriesButton.querySelector(".categories-arrow");
 const categoriesOption = categoriesWrapper.querySelector(".categories-option");

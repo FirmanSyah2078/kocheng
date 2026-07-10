@@ -57,7 +57,7 @@
         </section>
 
         <section
-            class="h-full grid gap-6 grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 justify-items-start">
+            class="h-full grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 justify-items-center sm:justify-items-start">
             @foreach ($products as $product)
                 <x-product.product-item :images="'https://i.kym-cdn.com/photos/images/newsfeed/002/429/796/96c.gif'" :name="$product->name" :price="$product->formatted_price" :stock="$product->stock"
                     :category="$product->category->name" :id="$product->id" />

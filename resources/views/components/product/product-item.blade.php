@@ -13,7 +13,7 @@
 
 
 <section
-    class="flex group w-45 lg:w-55 items-center  flex-col shadow border-t border-secondary/10 bg-neutral  rounded-2xl  hover:shadow-lg transition-all duration-300 hover:scale-105 transform-style:preserve-3d ">
+    class="flex group w-40 sm:w-46 md:w-43 lg:w-55 items-center  flex-col shadow border-t border-secondary/10 bg-neutral  rounded-2xl  hover:shadow-lg transition-all duration-300 hover:scale-105 transform-style:preserve-3d ">
     <div class="flex justify-start w-full flex-col gap-2 mb-2 pt-4 px-4  ">
         <h1 class="font-bold text-sm truncate w-full">{{ $name }}</h1>
         <h2 class="font-bold md:text-lg  text-primary mb-2">{{ $price }}</h2>
