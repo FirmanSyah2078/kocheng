@@ -32,9 +32,9 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/update/{id}/{action}', [CartController::class, 'updateQuantity'])->name('cart.update');
 Route::post('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
 
-Route::get('/checkout', function () {
-    return view('users.checkout');
-})->name('checkout');
+Route::get('/payment', function () {
+    return view('users.payment');
+})->name('payment');
 
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 
