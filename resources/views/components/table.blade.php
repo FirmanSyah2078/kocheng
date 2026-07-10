@@ -1,8 +1,8 @@
  <div>
-     <div class="overflow-hidden rounded-xl border border-gray-300">
+     <div class="overflow-hidden rounded-xl border border-secondary">
          <table class="w-full">
              <thead>
-                 <tr class="bg-gray-200">
+                 <tr class="bg-primary text-neutral">
                      {{ $header }}
                  </tr>
              </thead>

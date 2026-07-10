@@ -12,7 +12,7 @@
 
         <x-cart.cart-hover />
         {{-- Sementara --}}
-        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">Dashboard</x-nav-link>
+        <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">Dashboard</x-nav-link>
         {{-- Sementara --}}
 
 
