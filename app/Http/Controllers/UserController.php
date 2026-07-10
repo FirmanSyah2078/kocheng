@@ -7,16 +7,34 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function index()
+    public function index()
     {
-        $products = User::all();
-        return view('admin.dashboard', compact('products'));
+        $users = User::all();
+        return view('admin.dashboard', compact('users'));
     }
 
-    function destroy($id)
+    public function destroy($id)
     {
         $user = User::findOrFail($id);
         $user->delete();
         return redirect()->route('dashboard');
+    }
+
+    public function edit($id)
+    {
+        $users = User::findOrFail($id);
+        return view('admin.edit', compact('users'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $users = User::findOrFail($id);
+        $users->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('dashboard');
+
     }
 }

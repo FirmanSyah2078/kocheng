@@ -27,7 +27,7 @@
 }
 
 .btn-table-edit {
-    @apply text-blue-600 mr-2;
+    @apply text-blue-600;
 }
 
 .btn-table-delete {

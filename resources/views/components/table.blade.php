@@ -1,7 +1,7 @@
  <div>
      <table class="border-collapse border border-black w-full">
          <thead>
-             <tr class="bg-gray-300">
+             <tr class="bg-gray-200">
                  {{ $header }}
              </tr>
          </thead>
