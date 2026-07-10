@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -26,6 +27,17 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('users.contact');
 })->name('contact');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+Route::post('/cart/update/{id}/{action}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::post('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+
+Route::get('/payment', function () {
+    return view('users.payment');
+})->name('payment');
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 
 // Users
 Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard.index');

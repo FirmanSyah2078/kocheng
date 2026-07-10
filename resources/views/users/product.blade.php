@@ -1,5 +1,14 @@
 <x-layout>
-    <div class=" flex flex-col gap-5">
+    <div class=" flex flex-col gap-5 ">
+        @if (session('success'))
+            <div id="cart-alert-container" class="added-cart-indicator fixed right-0  z-10 left-0 group">
+                <div
+                    class="w-fit h-fit p-5 rounded-2xl bg-primary text-neutral  absolute right-10 transition-all duration-500 ease-in-out opacity-0 translate-x-full invisible group-[.success]:opacity-100 group-[.success]:visible group-[.success]:translate-x-0">
+                    <p>{{ session('success') }}</p>
+                </div>
+            </div>
+        @endif
+
 
         <section class="flex h-full flex-col md:flex-row w-full justify-between items-start md:items-center gap-5">
             <div>
@@ -31,7 +40,8 @@
                     </button>
 
                     <div
-                        class="categories-option z-10 absolute flex shadow p-4 gap-2 transition-all duration-500 ease-in-out flex-col opacity-0 invisible -translate-y-2 w-full  bg-neutral top-full left-0 group-[.menu-open]:opacity-100 group-[.menu-open]:visible group-[.menu-open]:translate-y-0">
+                        class="categories-option z-10 absolute flex shadow p-4 gap-2 transition-all duration-500 ease-in-out flex-col opacity-0 invisible -translate-y-2 w-full  bg-neutral top-full left-0
+                        group-[.menu-open]:opacity-100 group-[.menu-open]:visible group-[.menu-open]:translate-y-0">
 
 
                         @foreach ($categories as $category)
@@ -57,7 +67,7 @@
         </section>
 
         <section
-            class="h-full grid gap-6 grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 justify-items-start">
+            class="h-full grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 justify-items-center sm:justify-items-start">
             @foreach ($products as $product)
                 <x-product.product-item :images="'https://i.kym-cdn.com/photos/images/newsfeed/002/429/796/96c.gif'" :name="$product->name" :price="$product->formatted_price" :stock="$product->stock"
                     :category="$product->category->name" :id="$product->id" />

@@ -22,7 +22,7 @@ class Product extends Model
     protected function formattedPrice(): Attribute
     {
         return Attribute::make(
-            get: fn() => Number::currency($this->price, in: 'IDR', locale: 'id'),
+            get: fn() => Number::currency($this->price, in: 'IDR', locale: 'id', precision: 0),
         );
     }
 }

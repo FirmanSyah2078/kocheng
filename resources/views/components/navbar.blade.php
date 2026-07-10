@@ -4,14 +4,18 @@
             <a href="/">{{ config('app.name', 'Laravel') }}</a>
         </div>
     </div>
-    <div class="flex  gap-6">
+    <div class="flex gap-6">
         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('/')">Home</x-nav-link>
         <x-nav-link href="{{ route('product') }}" :active="request()->routeIs('product')">Product</x-nav-link>
         <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">About</x-nav-link>
         <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">Contact</x-nav-link>
 
+        <x-cart.cart-hover />
         {{-- Sementara --}}
         <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">Dashboard</x-nav-link>
         {{-- Sementara --}}
+
+
+
     </div>
 </nav>
