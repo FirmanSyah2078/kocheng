@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,10 @@ class UserController extends Controller
             $data = Category::withCount('products')->get();
         } elseif ($tab == 'product') {
             $data = Product::with('category')->get();
+        } elseif ($tab == 'transactions') {
+            $data = Transaction::with('user')->get();
+        } elseif ($tab == 'transaction_detail') {
+            $data = Transaction::with(['user', 'items'])->findOrFail($request->id);
         } else {
             $data = User::all();
         }
