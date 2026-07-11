@@ -36,11 +36,11 @@
 
             @if ($paymentMethod === 'bayar ditempat')
                 <div class="flex flex-col items-center gap-4">
-                    <div class="p-4 bg-white rounded-full shadow-sm">
-                        <span class="text-4xl icon-[streamline-freehand--begging-giving] p-5 px-10"></span>
+                    <div class="p-4">
+                        <img src="https://quickchart.io/qr?text=https://www.youtube.com/watch?v=hvL1339luv0&list=RDhvL1339luv0&start_radio=1&size=200"
+                            alt="QR Code">
                     </div>
-                    <p class="text-lg text-secondary">Please show your <span
-                            class="font-bold text-primary">{{ $invoiceNumber }}</span> to the cashier upon arrival.</p>
+                    <p class="text-lg text-secondary">Please show <span class="font-bold text-primary">this</span> to the cashier upon arrival.</p>
                 </div>
             @else
                 <div class="flex flex-col items-center gap-4">
