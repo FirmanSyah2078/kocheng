@@ -15,15 +15,15 @@ class UserController extends Controller
         $tab = $request->query('tab', 'users');
 
         if ($tab == 'categories') {
-            $data = Category::withCount('products')->get();
+            $data = Category::orderByRaw("status = 'inactive' ASC")->withCount('products')->get();
         } elseif ($tab == 'product') {
-            $data = Product::with('category')->get();
+            $data = Product::orderByRaw("status = 'inactive' ASC")->with('category')->get();
         } elseif ($tab == 'transactions') {
             $data = Transaction::with('user')->get();
         } elseif ($tab == 'transaction_detail') {
             $data = Transaction::with(['user', 'items'])->findOrFail($request->id);
         } else {
-            $data = User::all();
+            $data = User::orderByRaw("status = 'inactive' ASC")->get();
         }
 
         return view('admin.dashboard', compact('data', 'tab'));

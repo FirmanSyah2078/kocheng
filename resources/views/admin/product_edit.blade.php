@@ -25,7 +25,7 @@
                 <div class="mt-5">
                     <label class="block text-sm text-secondary mb-2">Price</label>
                     <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="number" name="price"
-                        value="{{ $data->price }}" required min="0">
+                        value="{{ $data->price }}" required min="0" step="1">
                 </div>
 
                 <div class="mt-5">
