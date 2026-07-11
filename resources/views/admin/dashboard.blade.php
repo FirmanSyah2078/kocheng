@@ -62,7 +62,7 @@
                             <td class="td-dashboard">{{ $d['email'] }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['role'] }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
-                            <td class="td-dashboard justify-center flex gap-2">
+                            <td class="td-dashboard text-center">
                                 <a href="{{ route('dashboard.edit', $d->id) }}">Edit</a>
                                 <a href="{{ route('dashboard.delete', $d->id) }}"
                                     onclick="return confirm('Delete {{ $d['name'] }}?')">
@@ -81,7 +81,7 @@
                             <td class="td-dashboard text-center capitalize">{{ $d['formatted_price'] }}</td>
                             <td class="td-dashboard text-center">{{ $d['stock'] }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
-                            <td class="td-dashboard justify-center flex gap-2">
+                            <td class="td-dashboard text-center">
                                 <a href="{{ route('product.edit', $d->id) }}">Edit</a>
                                 <a href="{{ route('product.delete', $d->id) }}"
                                     onclick="return confirm('Delete {{ $d['name'] }}?')">
@@ -95,7 +95,7 @@
                             <td class="td-dashboard text-center">{{ $d['name'] }}</td>
                             <td class="td-dashboard text-center">{{ $d->products_count }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
-                            <td class="td-dashboard justify-center flex gap-2">
+                            <td class="td-dashboard text-center">
                                 <a href="{{ route('categories.edit', $d->id) }}">Edit</a>
                                 <a href="{{ route('categories.delete', $d->id) }}"
                                     onclick="return confirm('Delete {{ $d['name'] }}?')">

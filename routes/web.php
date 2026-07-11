@@ -55,3 +55,4 @@ Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy'])->n
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
+//T

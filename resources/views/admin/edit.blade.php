@@ -9,13 +9,13 @@
                 <div>
                     <label class="block text-sm text-secondary mb-2">Name</label>
                     <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="name"
-                        value="{{ $data->name }}">
+                        value="{{ $data->name }}" required>
                 </div>
 
                 <div class="mt-5">
                     <label class="block text-sm text-secondary mb-2">Email</label>
-                    <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="email"
-                        value="{{ $data->email }}">
+                    <input class="p-2 border border-neutral-300 rounded-xl outline-none text-secondary" type="text"
+                        name="email" value="{{ $data->email }}" disabled>
                 </div>
 
                 <div class="mt-5">

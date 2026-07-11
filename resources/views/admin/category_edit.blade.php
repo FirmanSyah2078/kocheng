@@ -8,7 +8,7 @@
                 <div>
                     <label class="block text-sm text-secondary mb-2">Category Name</label>
                     <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="name"
-                        value="{{ $data->name }}">
+                        value="{{ $data->name }}" required>
 
                 </div>
 

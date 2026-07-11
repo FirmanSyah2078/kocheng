@@ -22,6 +22,10 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+        
         $data = Category::findOrFail($id);
         $data->update([
             'name' => $request->name,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -40,10 +41,18 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'describtion' => 'required',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ]);
+
         $data = Product::findOrFail($id);
         $data->update([
             'category_id' => $request->category_id,
             'name' => $request->name,
+            'slug' => Str::slug($request->name),
             'describtion' => $request->describtion,
             'price' => $request->price,
             'stock' => $request->stock,
