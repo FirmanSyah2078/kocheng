@@ -15,7 +15,11 @@
             'image' =>
                 'https://th.bing.com/th/id/OIP.UEXTt6nVBMLf5I8rQh8U_wHaFj?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
         ],
-        'bayar ditempat' => ['label' => 'Bayar di Tempat', 'image' => 'https://img.freepik.com/premium-vector/cash-logo-icon-design-vector-illustration_586739-3606.jpg?w=2000'],
+        'bayar ditempat' => [
+            'label' => 'Bayar di Tempat',
+            'image' =>
+                'https://img.freepik.com/premium-vector/cash-logo-icon-design-vector-illustration_586739-3606.jpg?w=2000',
+        ],
     ];
 @endphp
 
@@ -77,8 +81,9 @@
                         <span id="display-payment-method" class="text-secondary uppercase">QRIS</span>
                     </div>
 
-                    <button type="submit" form="payment-form"
-                        class="w-full block text-center bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary-dark transition">
+
+                    <button type="submit" form="payment-form" @if ($totalItems == 0) disabled @endif
+                        class="w-full block text-center bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary-dark transition disabled:bg-gray-400 disabled:cursor-not-allowed">
                         Proceed to Payment
                     </button>
                 </div>

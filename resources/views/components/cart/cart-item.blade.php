@@ -14,7 +14,7 @@
 <div class="flex flex-row w-full h-fit border-b-2 border-secondary/10 bg-neutral justify-between px-4 py-4  ">
 
     <div class="flex flex-row gap-5 items-center">
-        <img src="{{ $image }}" class="w-15 h-15 rounded-lg object-cover" alt="{{ $name }}">
+        <img src="{{ $image }}"class="w-25 h-25 rounded-xl object-cover ring-1 ring-secondary/20">
         <div>
             <h1 class="font-semibold text-sm">{{ $name }}</h1>
             <div class="flex items-center gap-2 text-xs text-secondary">
