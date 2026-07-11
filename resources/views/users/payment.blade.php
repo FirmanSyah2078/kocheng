@@ -1,8 +1,8 @@
 <x-layout>
-    <div class="max-w-4xl mx-auto p-6">
-        <h1 class="text-3xl font-bold mb-6">Payment Details</h1>
+    <div class="max-w-4xl mx-auto p-10 ring ring-secondary/10 shadow shadow-secondary/10 ">
+        <h1 class="text-3xl font-bold mb-6 border-t border-secondary/50 border-dashed pt-5">Payment Details</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 ">
             <div>
                 <h3 class="text-sm uppercase tracking-wider text-secondary font-semibold mb-1">Invoice Date</h3>
                 <p class="text-lg font-medium">{{ $date }}</p>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Transaction Items</h2>
+            <h2 class="text-2xl font-bold mb-4 border-t border-secondary/50 border-dashed pt-5">Transaction Items</h2>
             <div class="bg-neutral rounded-xl p-4 shadow-sm overflow-hidden">
                 @foreach ($products as $product)
                     @php $quantity = $cart[$product->id]; @endphp
@@ -24,14 +24,14 @@
             </div>
         </div>
 
-        <div class="flex justify-end mb-10">
+        <div class="flex justify-end mb-10 border-t border-secondary/50 border-dashed pt-5">
             <div class="text-right">
-                <h2 class="text-xl font-semibold text-secondary mb-1">Transaction Total</h2>
+                <h2 class="text-xl font-semibold text-secondary mb-1 ">Transaction Total</h2>
                 <p class="text-4xl font-bold text-primary">{{ $formattedGrandTotal }}</p>
             </div>
         </div>
 
-        <div class="bg-secondary/5 border border-secondary/20 rounded-2xl p-8 text-center mb-8">
+        <div class="bg-secondary/5 border border-secondary/20 rounded-2xl p-8 text-center mb-8 ">
             <h3 class="text-lg font-bold mb-4 uppercase">Payment Method: {{ strtoupper($paymentMethod) }}</h3>
 
             @if ($paymentMethod === 'bayar ditempat')
@@ -45,7 +45,7 @@
             @else
                 <div class="flex flex-col items-center gap-4">
                     <div class="bg-white p-4 rounded-xl shadow-sm ring-1 ring-secondary/20">
-                        <img src="https://quickchart.io/qr?text=https://www.youtube.com/watch?v=9BalEldzE8o&size=200"
+                        <img src="https://quickchart.io/qr?text=https://www.youtube.com/watch?v=hvL1339luv0&list=RDhvL1339luv0&start_radio=1&size=200"
                             alt="QR Code">
                     </div>
                     <p class="text-sm text-secondary">Scan the QR code above to complete your payment.</p>
@@ -53,7 +53,7 @@
             @endif
         </div>
 
-        <div class="flex gap-4 justify-center">
+        <div class="flex gap-4 justify-center border-t border-secondary/50 border-dashed pt-5 border-b pb-5">
             <a href="{{ route('cart') }}"
                 class="px-8 py-3 rounded-xl font-bold text-secondary hover:bg-neutral transition">
                 Cancel
