@@ -10,7 +10,8 @@ class CategoryController extends Controller
 {
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
+        $data = Category::findOrFail($id);
+        $data->update(['status' => 'inactive']);
         return redirect()->route('dashboard.index');
     }
     public function edit($id)
@@ -21,10 +22,15 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+        
         $data = Category::findOrFail($id);
         $data->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
+            'status' => $request->status
         ]);
 
         return redirect()->route('dashboard.index');

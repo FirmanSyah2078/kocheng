@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,13 @@ class UserController extends Controller
         $tab = $request->query('tab', 'users');
 
         if ($tab == 'categories') {
-            $data = Category::all();
+            $data = Category::withCount('products')->get();
         } elseif ($tab == 'product') {
             $data = Product::with('category')->get();
+        } elseif ($tab == 'transactions') {
+            $data = Transaction::with('user')->get();
+        } elseif ($tab == 'transaction_detail') {
+            $data = Transaction::with(['user', 'items'])->findOrFail($request->id);
         } else {
             $data = User::all();
         }
@@ -27,7 +32,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $data = User::findOrFail($id);
-        $data->delete();
+        $data->update(['status' => 'inactive']);
 
         return redirect()->route('dashboard.index');
     }
@@ -40,11 +45,15 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
         $data = User::findOrFail($id);
         $data->update([
             'name' => $request->name,
-            'email' => $request->email,
             'role' => $request->role,
+            'status' => $request->status
         ]);
 
         return redirect()->route('dashboard.index');

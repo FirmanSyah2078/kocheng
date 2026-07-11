@@ -19,9 +19,9 @@
 }
 
 .th-dashboard {
-    @apply p-2 font-bold;
+    @apply p-4;
 }
 
 .td-dashboard {
-    @apply p-2;
+    @apply p-4 border-b;
 }
