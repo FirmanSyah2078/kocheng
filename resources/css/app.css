@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", serif;
+
+  --color-primary: #2e2140; /* Ink Plum */
+  --color-secondary: #46414d; /* Charcoal Fur */
+  --color-accent: #f0a202; /* Marigold */
+  --color-neutral: #f1eef6; /* Lavender Mist */
+  --color-danger: #c65d76; /* Rose Clay */
+}
+
+.th-dashboard {
+  @apply p-4;
+}
+
+.td-dashboard {
+  @apply p-4 border-b;
+}
+
+/* ---------------------------------------------------------
+   Scroll-reveal: elemen dengan class .reveal akan fade + slide
+   naik begitu masuk viewport. Ditambahkan lewat resources/js/reveal.js
+   ---------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
