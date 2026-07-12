@@ -26,11 +26,11 @@
     <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         @php
             $team = [
-                ['slug' => 'abad', 'name' => 'Abad'],
-                ['slug' => 'fadil', 'name' => 'Fadil'],
-                ['slug' => 'eko', 'name' => 'Eko'],
-                ['slug' => 'firman', 'name' => 'Firman'],
-                ['slug' => 'arga', 'name' => 'Arga'],
+                ['slug' => 'abad', 'name' => 'Abad', 'nim' => '24104410049'],
+                ['slug' => 'fadil', 'name' => 'Fadil', 'nim' => '24104410050'],
+                ['slug' => 'eko', 'name' => 'Eko', 'nim' => '24104410087'],
+                ['slug' => 'firman', 'name' => 'Firman', 'nim' => '24104410057'],
+                ['slug' => 'arga', 'name' => 'Arga', 'nim' => '24104410051'],
             ];
         @endphp
 
