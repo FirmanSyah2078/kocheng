@@ -2,11 +2,6 @@
     <x-slot:title>Kelola {{ ucfirst($tab) }}</x-slot>
 
     <section class="max-w-7xl mx-auto px-6 py-10">
-        @if (session('success'))
-            <div class="mb-6 rounded-xl p-4 text-sm" style="background: color-mix(in srgb, #7C9473 12%, white); color:#4d5d47;">
-                {{ session('success') }}
-            </div>
-        @endif
 
         <div class="flex gap-5 mb-6 border-b border-black/10">
             @foreach (['users' => 'Users', 'categories' => 'Categories', 'products' => 'Products', 'transactions' => 'Transactions'] as $key => $label)
@@ -61,8 +56,10 @@
                             <td class="td-dashboard text-center capitalize">{{ $d->role }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d->status }}</td>
                             <td class="td-dashboard text-center space-x-2">
-                                <a href="{{ route('dashboard.admin.users.edit', $d) }}" class="text-primary hover:underline">Edit</a>
-                                <form action="{{ route('dashboard.admin.users.destroy', $d) }}" method="POST" class="inline" onsubmit="return confirm('Nonaktifkan {{ $d->name }}?')">
+                                <a href="{{ route('dashboard.admin.users.edit', $d) }}"
+                                    class="text-primary hover:underline">Edit</a>
+                                <form action="{{ route('dashboard.admin.users.destroy', $d) }}" method="POST"
+                                    class="inline" onsubmit="return confirm('Nonaktifkan {{ $d->name }}?')">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="text-danger hover:underline">Nonaktifkan</button>
                                 </form>
@@ -73,8 +70,10 @@
                             <td class="td-dashboard text-center">{{ $d->products_count }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d->status }}</td>
                             <td class="td-dashboard text-center space-x-2">
-                                <a href="{{ route('dashboard.admin.categories.edit', $d) }}" class="text-primary hover:underline">Edit</a>
-                                <form action="{{ route('dashboard.admin.categories.destroy', $d) }}" method="POST" class="inline" onsubmit="return confirm('Nonaktifkan {{ $d->name }}?')">
+                                <a href="{{ route('dashboard.admin.categories.edit', $d) }}"
+                                    class="text-primary hover:underline">Edit</a>
+                                <form action="{{ route('dashboard.admin.categories.destroy', $d) }}" method="POST"
+                                    class="inline" onsubmit="return confirm('Nonaktifkan {{ $d->name }}?')">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="text-danger hover:underline">Nonaktifkan</button>
                                 </form>
@@ -88,8 +87,10 @@
                             <td class="td-dashboard text-center">{{ $d->stock }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d->status }}</td>
                             <td class="td-dashboard text-center space-x-2">
-                                <a href="{{ route('dashboard.admin.products.edit', $d) }}" class="text-primary hover:underline">Edit</a>
-                                <form action="{{ route('dashboard.admin.products.destroy', $d) }}" method="POST" class="inline" onsubmit="return confirm('Nonaktifkan {{ $d->name }}?')">
+                                <a href="{{ route('dashboard.admin.products.edit', $d) }}"
+                                    class="text-primary hover:underline">Edit</a>
+                                <form action="{{ route('dashboard.admin.products.destroy', $d) }}" method="POST"
+                                    class="inline" onsubmit="return confirm('Nonaktifkan {{ $d->name }}?')">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="text-danger hover:underline">Nonaktifkan</button>
                                 </form>
@@ -101,19 +102,25 @@
                             <td class="td-dashboard text-center capitalize">{{ $d->status }}</td>
                             <td class="td-dashboard text-center uppercase">{{ $d->payment_method }}</td>
                             <td class="td-dashboard text-center space-x-2">
-                                <a href="{{ route('dashboard.admin.transactions.detail', $d->invoice_number) }}" class="text-primary hover:underline">Detail</a>
+                                <a href="{{ route('dashboard.admin.transactions.detail', $d->invoice_number) }}"
+                                    class="text-primary hover:underline">Detail</a>
                                 @if ($d->status === 'pending')
-                                    <form action="{{ route('dashboard.admin.transactions.update', $d) }}" method="POST" class="inline">
+                                    <form action="{{ route('dashboard.admin.transactions.update', $d) }}"
+                                        method="POST" class="inline">
                                         @csrf @method('PUT')
-                                        <button type="submit" name="status" value="completed" class="hover:underline" style="color:#7C9473">Konfirmasi</button>
-                                        <button type="submit" name="status" value="cancelled" class="text-danger hover:underline">Batal</button>
+                                        <button type="submit" name="status" value="completed" class="hover:underline"
+                                            style="color:#7C9473">Konfirmasi</button>
+                                        <button type="submit" name="status" value="cancelled"
+                                            class="text-danger hover:underline">Batal</button>
                                     </form>
                                 @endif
                             </td>
                         @endif
                     </tr>
                 @empty
-                    <tr><td class="td-dashboard text-center" colspan="8">Belum ada data.</td></tr>
+                    <tr>
+                        <td class="td-dashboard text-center" colspan="8">Belum ada data.</td>
+                    </tr>
                 @endforelse
             </x-slot:body>
         </x-dashboard.table>

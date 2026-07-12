@@ -2,16 +2,7 @@
     <x-slot:title>Katalog Produk - Meowland</x-slot>
 
     <div class="max-w-7xl mx-auto px-6 py-10">
-
-        @if (session('success'))
-            <div id="cart-alert-container"
-                class="added-cart-indicator fixed right-0 z-50 left-0 group pointer-events-none">
-                <div
-                    class="w-fit h-fit p-5 rounded-2xl bg-primary text-white absolute right-10 top-4 transition-all duration-500 ease-in-out opacity-0 translate-x-full invisible group-[.success]:opacity-100 group-[.success]:visible group-[.success]:translate-x-0 shadow-lg">
-                    <p>{{ session('success') }}</p>
-                </div>
-            </div>
-        @endif
+        <div class="max-w-7xl mx-auto px-6 py-10">
 
         <section class="flex flex-col md:flex-row w-full justify-between items-start md:items-center gap-5 mb-8">
             <div>

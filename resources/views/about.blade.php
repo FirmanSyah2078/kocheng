@@ -16,43 +16,43 @@
         </div>
     </section>
 
-<section class="py-15">
-    <div class="text-center mb-14 reveal">
-        <p class="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Di Balik Layar</p>
-        <h2 class="font-serif text-3xl lg:text-4xl font-semibold text-primary mb-3">Tim Kami</h2>
-        <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
-    </div>
+    {{-- ============ TIM KAMI ============ --}}
+    <section class="py-15">
+        <div class="text-center mb-14 reveal">
+            <p class="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Di Balik Layar</p>
+            <h2 class="font-serif text-3xl lg:text-4xl font-semibold text-primary mb-3">Tim Kami</h2>
+            <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+        </div>
 
-    <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        @php
-            $team = [
-                ['slug' => 'abad', 'name' => 'Abad', 'nim' => '24104410049'],
-                ['slug' => 'fadil', 'name' => 'Fadil', 'nim' => '24104410050'],
-                ['slug' => 'eko', 'name' => 'Eko', 'nim' => '24104410087'],
-                ['slug' => 'firman', 'name' => 'Firman', 'nim' => '24104410057'],
-                ['slug' => 'arga', 'name' => 'Arga', 'nim' => '24104410051'],
-            ];
-        @endphp
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            @php
+                $team = [
+                    ['slug' => 'abad', 'name' => 'Abad'],
+                    ['slug' => 'fadil', 'name' => 'Fadil'],
+                    ['slug' => 'eko', 'name' => 'Eko'],
+                    ['slug' => 'firman', 'name' => 'Firman'],
+                    ['slug' => 'arga', 'name' => 'Arga'],
+                ];
+            @endphp
 
-        @foreach ($team as $i => $member)
-            @php $hasPhoto = file_exists(public_path("src/{$member['slug']}.png")); @endphp
+            @foreach ($team as $i => $member)
+                @php $hasPhoto = file_exists(public_path("src/{$member['slug']}.png")); @endphp
 
-            <div class="reveal reveal-delay-{{ ($i % 4) + 1 }} bg-white rounded-2xl p-6 text-center shadow-sm border border-secondary/5">
-                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden bg-neutral flex items-center justify-center mb-4 ring-4 ring-accent/10">
-                    @if ($hasPhoto)
-                        <img
-                            src="{{ asset("src/{$member['slug']}.png") }}"
-                            alt="{{ $member['name'] }}"
-                            class="w-full h-full object-cover object-top"
-                        >
-                    @else
-                        <span class="icon-[mdi--paw] text-4xl text-accent/50"></span>
-                    @endif
+                <div
+                    class="reveal reveal-delay-{{ ($i % 4) + 1 }} bg-white rounded-2xl p-6 text-center shadow-sm border border-secondary/5">
+                    <div
+                        class="w-24 h-24 mx-auto rounded-full overflow-hidden bg-neutral flex items-center justify-center mb-4 ring-4 ring-accent/10">
+                        @if ($hasPhoto)
+                            <img src="{{ asset("src/{$member['slug']}.png") }}" alt="{{ $member['name'] }}"
+                                class="w-full h-full object-cover">
+                        @else
+                            <span class="icon-[mdi--paw] text-4xl text-accent/50"></span>
+                        @endif
+                    </div>
+                    <p class="font-bold text-primary text-sm">{{ $member['name'] }}</p>
+                    <p class="text-xs text-secondary/50 mt-1">NIM: {{ $member['nim'] ?? '-' }}</p>
                 </div>
-                <p class="font-bold text-primary text-sm">{{ $member['name'] }}</p>
-                <p class="text-xs text-secondary/50 mt-1">NIM: {{ $member['nim'] ?? '-' }}</p>
-            </div>
-        @endforeach
-    </div>
-</section>
+            @endforeach
+        </div>
+    </section>
 </x-layout>

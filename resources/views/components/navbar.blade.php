@@ -10,20 +10,19 @@
         </a>
 
         <div class="flex items-center justify-center gap-8">
-            @if ($inDashboard && auth()->check() && ! auth()->user()->isAdmin())
+            @if ($inDashboard && auth()->check() && !auth()->user()->isAdmin())
                 <x-nav-link href="{{ route('dashboard.user.products') }}" :active="request()->routeIs('dashboard.user.products')">Katalog</x-nav-link>
-            @elseif (! $inDashboard)
+            @elseif (!$inDashboard)
                 <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-link>
                 <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">About</x-nav-link>
                 <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">Contact</x-nav-link>
             @endif
         </div>
 
-        {{-- Kanan: Aksi --}}
         <div class="flex items-center justify-end gap-6">
             @auth
                 @if ($inDashboard)
-                    @if (! auth()->user()->isAdmin())
+                    @if (!auth()->user()->isAdmin())
                         <x-dashboard.cart-hover />
                     @endif
 
@@ -35,7 +34,11 @@
                 @else
                     <a href="{{ auth()->user()->isAdmin() ? route('dashboard.admin.index') : route('dashboard.user.products') }}"
                         class="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold hover:opacity-90 transition justify-self-end">
-                        Dashboard
+                        @auth
+                            Katalog
+                        @else
+                            Dashboard
+                        @endauth
                     </a>
                 @endif
             @else
