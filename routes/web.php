@@ -6,22 +6,16 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
+// Root - Landing Page
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/index', function () {
-    return view('users.index');
-});
-
-Route::get('/', function () {
-    return view('users.index');
 })->name('home');
 
-Route::get('/products', [ProductController::class, 'index'])->name('product');
-
+// Halaman Publik
 Route::get('/about', function () {
     return view('users.about');
 })->name('about');
@@ -29,6 +23,13 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('users.contact');
 })->name('contact');
+
+// Auth
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('login.attempt');
+Route::post('/signup', [AuthController::class, 'register'])->name('signup.attempt');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Transaction
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
@@ -44,6 +45,7 @@ Route::get('/dashboard/edit/{id}', [UserController::class, 'edit'])->name('dashb
 Route::post('/dashboard/update/{id}', [UserController::class, 'update'])->name('dashboard.update');
 
 // Product
+Route::get('/products', [ProductController::class, 'index'])->name('product');
 Route::get('/product/delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
 Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
 Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
@@ -57,4 +59,3 @@ Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->n
 Route::get('/transaction/delete/{id}', [TransactionController::class, 'destroy'])->name('transaction.delete');
 Route::get('/transaction/detail/{invoice}', [TransactionController::class, 'detail'])->name('transaction.detail');
 Route::post('/transaction/update/{id}', [TransactionController::class, 'update'])->name('transaction.update');
-

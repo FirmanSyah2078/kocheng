@@ -1,6 +1,5 @@
 <x-layout>
 
-
     <div>
         <a href="{{ route('dashboard.index', ['tab' => 'transactions']) }}" class="text-secondary hover:text-primary">
             ← Kembali ke Daftar Transaksi

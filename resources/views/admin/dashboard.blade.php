@@ -70,7 +70,7 @@
 
             <x-slot:body>
                 @foreach ($data as $d)
-                    <tr class="hover:bg-neutral-200 transition-all duration-300">
+                    <tr class="hover:bg-neutral transition-all duration-300">
 
                         {{-- Table data Users --}}
                         @if ($tab == 'users')
@@ -80,11 +80,13 @@
                             <td class="td-dashboard text-center capitalize">{{ $d['role'] }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard text-center">
-                                <a href="{{ route('dashboard.edit', $d->id) }}">Edit</a>
-                                <a href="{{ route('dashboard.delete', $d->id) }}"
-                                    onclick="return confirm('Delete {{ $d['name'] }}?')">
-                                    Delete
-                                </a>
+                                <div class="flex justify-center gap-5">
+                                    <a href="{{ route('dashboard.edit', $d->id) }}">Edit</a>
+                                    <a href="{{ route('dashboard.delete', $d->id) }}"
+                                        onclick="return confirm('Delete {{ $d['name'] }}?')">
+                                        Delete
+                                    </a>
+                                </div>
                             </td>
 
                             {{-- Table data Product --}}
@@ -99,11 +101,13 @@
                             <td class="td-dashboard text-center">{{ $d['stock'] }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard text-center">
-                                <a href="{{ route('product.edit', $d->id) }}">Edit</a>
-                                <a href="{{ route('product.delete', $d->id) }}"
-                                    onclick="return confirm('Delete {{ $d['name'] }}?')">
-                                    Delete
-                                </a>
+                                <div class="flex justify-center gap-5">
+                                    <a href="{{ route('product.edit', $d->id) }}">Edit</a>
+                                    <a href="{{ route('product.delete', $d->id) }}"
+                                        onclick="return confirm('Delete {{ $d['name'] }}?')">
+                                        Delete
+                                    </a>
+                                </div>
                             </td>
 
                             {{-- Table data Categories --}}
@@ -113,11 +117,13 @@
                             <td class="td-dashboard text-center">{{ $d->products_count }}</td>
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard text-center">
-                                <a href="{{ route('categories.edit', $d->id) }}">Edit</a>
-                                <a href="{{ route('categories.delete', $d->id) }}"
-                                    onclick="return confirm('Delete {{ $d['name'] }}?')">
-                                    Delete
-                                </a>
+                                <div class="flex justify-center gap-5">
+                                    <a href="{{ route('categories.edit', $d->id) }}">Edit</a>
+                                    <a href="{{ route('categories.delete', $d->id) }}"
+                                        onclick="return confirm('Delete {{ $d['name'] }}?')">
+                                        Delete
+                                    </a>
+                                </div>
                             </td>
 
                             {{-- Table data Transactions --}}
@@ -131,18 +137,14 @@
                             <td class="td-dashboard text-center capitalize">{{ $d['status'] }}</td>
                             <td class="td-dashboard text-center uppercase">{{ $d['payment_method'] }}</td>
                             <td class="td-dashboard text-center">
-
                                 <a href="{{ route('transaction.detail', $d->invoice_number) }}">Detail</a>
-
                                 @if ($d->status == 'pending')
-                                    <form action="{{ route('transaction.update', $d->id) }}" method="POST"
-                                        class="inline">
+                                    <form action="{{ route('transaction.update', $d->id) }}" method="POST">
                                         @csrf
                                         <button type="submit" name="status" value="completed"
-                                            class="cursor-pointer">Konfirmasi</button>
-
+                                            class="cursor-pointer">Confirm</button>
                                         <button type="submit" name="status" value="cancelled"
-                                            class="cursor-pointer">Batal</button>
+                                            class="cursor-pointer">Cancel</button>
                                     </form>
                                 @endif
                             </td>

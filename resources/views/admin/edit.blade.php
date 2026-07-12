@@ -1,47 +1,60 @@
 <x-layout>
     <div class="min-h-screen flex items-start justify-center">
-        <div class="max-w-md w-full p-5 bg-neutral rounded-lg shadow-sm border border-neutral-300">
 
-            <h2 class="mb-5">Edit Profile</h2>
-            <form action="{{ route('dashboard.update', $data->id) }}" method="POST">
-                @csrf
+        <div class="w-full max-w-md p-5">
 
-                <div>
-                    <label class="block text-sm text-secondary mb-2">Name</label>
-                    <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="name"
-                        value="{{ $data->name }}" required>
-                </div>
 
-                <div class="mt-5">
-                    <label class="block text-sm text-secondary mb-2">Email</label>
-                    <input class="p-2 border border-neutral-300 rounded-xl outline-none text-secondary" type="text"
-                        name="email" value="{{ $data->email }}" disabled>
-                </div>
+            <div>
+                <a href="{{ route('dashboard.index', ['tab' => 'users']) }}" class="text-neutral-400 hover:text-primary">
+                    ← Kembali
+                </a>
+            </div>
 
-                <div class="mt-5">
-                    <label class="block text-sm text-secondary mb-2">Role</label>
-                    <select class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="role">
-                        <option value="admin"{{ $data->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                        <option value="user"{{ $data->role == 'user' ? 'selected' : '' }}>User</option>
-                    </select>
-                </div>
+            <div class="mt-5 max-w-md w-full p-5 rounded-lg shadow-sm border border-neutral-300">
 
-                <div class="mt-5">
-                    <label class="block text-sm text-secondary mb-2">Status</label>
-                    <select class="p-2 border border-neutral-300 rounded-xl outline-none" type="text" name="status">
-                        <option value="active"{{ $data->status == 'active' ? 'selected' : '' }}>Active</option>
-                        <option value="inactive"{{ $data->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                    </select>
-                </div>
+                <h2 class="mb-5">Edit Profile</h2>
+                <form action="{{ route('dashboard.update', $data->id) }}" method="POST">
+                    @csrf
 
-                <div class="mt-5">
-                    <button type="submit"
-                        class="w-max p-2 rounded-md text-neutral bg-primary hover:bg-secondary transition-all duration-300">Save
-                        changes</button>
-                </div>
+                    <div>
+                        <label class="block text-sm text-secondary mb-2">Name</label>
+                        <input class="p-2 border border-neutral-300 rounded-xl outline-none" type="text"
+                            name="name" value="{{ $data->name }}" required>
+                    </div>
 
-            </form>
+                    <div class="mt-5">
+                        <label class="block text-sm text-secondary mb-2">Email</label>
+                        <input class="p-2 border border-neutral-300 rounded-xl outline-none text-secondary"
+                            type="text" name="email" value="{{ $data->email }}" disabled>
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="block text-sm text-secondary mb-2">Role</label>
+                        <select class="p-2 border border-neutral-300 rounded-xl outline-none" type="text"
+                            name="role">
+                            <option value="admin"{{ $data->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="user"{{ $data->role == 'user' ? 'selected' : '' }}>User</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="block text-sm text-secondary mb-2">Status</label>
+                        <select class="p-2 border border-neutral-300 rounded-xl outline-none" type="text"
+                            name="status">
+                            <option value="active"{{ $data->status == 'active' ? 'selected' : '' }}>Active</option>
+                            <option value="inactive"{{ $data->status == 'inactive' ? 'selected' : '' }}>Inactive
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mt-5">
+                        <button type="submit"
+                            class="w-max p-2 rounded-md text-neutral bg-neutral-400 hover:bg-primary transition-all duration-300">Save
+                            changes</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
-
     </div>
 </x-layout>

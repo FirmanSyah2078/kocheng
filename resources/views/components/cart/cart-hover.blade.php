@@ -2,10 +2,11 @@
 
      <x-nav-link href="{{ route('cart') }}" :active="request()->routeIs('cart')">
 
-         <span
-             class="cart-icon text-2xl group-[.menu-open]:text-primary  hover:text-primary transition-all duration-250 group-[.menu-open]:scale-120 icon-[solar--cart-3-bold]">
-         </span>
-
+         <div class="flex items-center justify-center">
+             <span
+                 class="cart-icon text-2xl group-[.menu-open]:text-primary  hover:text-primary transition-all duration-250 group-[.menu-open]:scale-120 icon-[solar--cart-3-bold]">
+             </span>
+         </div>
 
      </x-nav-link>
 
