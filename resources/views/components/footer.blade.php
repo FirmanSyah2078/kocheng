@@ -1,7 +1,6 @@
 <footer class="bg-primary text-white mt-auto border-t border-white/10">
     <div class="container mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
 
-        {{-- Brand --}}
         <div class="md:col-span-2">
             <p class="font-serif text-2xl text-accent mb-3">Meowland<span class="text-white">.</span></p>
             <p class="text-sm text-white/60 max-w-sm leading-relaxed">
@@ -9,7 +8,6 @@
                 kami siapkan dengan mudah dan cepat.
             </p>
 
-            {{-- Sosial media (ikon inline, tinggal ganti href-nya) --}}
             <div class="flex items-center gap-3 mt-5">
                 <a href="#" aria-label="Instagram"
                     class="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-colors">
@@ -35,7 +33,6 @@
             </div>
         </div>
 
-        {{-- Navigasi --}}
         <div>
             <p class="text-sm font-semibold text-white mb-4 tracking-wide uppercase">Navigasi</p>
             <ul class="space-y-2 text-sm text-white/60">
@@ -45,7 +42,6 @@
             </ul>
         </div>
 
-        {{-- Kontak --}}
         <div>
             <p class="text-sm font-semibold text-white mb-4 tracking-wide uppercase">Kontak</p>
             <ul class="space-y-2 text-sm text-white/60">

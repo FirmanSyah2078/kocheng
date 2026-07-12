@@ -8,7 +8,7 @@
             @csrf
             <div class="grid grid-cols-3 gap-3">
                 @foreach (['qris' => 'QRIS', 'ovo' => 'OVO', 'dana' => 'DANA', 'paypal' => 'PayPal', 'bayar ditempat' => 'Bayar di Tempat'] as $value => $label)
-                    <label class="border border-black/10 rounded-xl p-4 text-center text-sm font-semibold cursor-pointer has-[:checked]:border-accent has-[:checked]:bg-accent/10">
+                    <label class="border border-black/10 rounded-xl p-4 text-center text-sm font-semibold cursor-pointer has-checked:border-accent has-checked:bg-accent/10">
                         <input type="radio" name="payment_method" value="{{ $value }}" class="hidden" @checked($loop->first)>
                         {{ $label }}
                     </label>

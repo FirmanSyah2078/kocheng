@@ -23,10 +23,6 @@
   @apply p-4 border-b;
 }
 
-/* ---------------------------------------------------------
-   Scroll-reveal: elemen dengan class .reveal akan fade + slide
-   naik begitu masuk viewport. Ditambahkan lewat resources/js/reveal.js
-   ---------------------------------------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(28px);

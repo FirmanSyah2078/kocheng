@@ -12,7 +12,7 @@ use App\Http\Controllers\Dashboard\User\CartController;
 use App\Http\Controllers\Dashboard\User\PaymentController;
 use Illuminate\Support\Facades\Route;
 
-// Landing / halaman publik
+// Landing
 Route::get('/', [LandingController::class, 'home'])->name('home');
 Route::get('/about', [LandingController::class, 'about'])->name('about');
 Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
@@ -24,7 +24,7 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('login.atte
 Route::post('/signup', [AuthController::class, 'register'])->name('signup.attempt');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Dashboard Admin — khusus role admin
+// Dashboard Admin
 Route::middleware(['auth', 'admin', 'nocache'])->prefix('dashboard/admin')->name('dashboard.admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
 
@@ -45,7 +45,7 @@ Route::middleware(['auth', 'admin', 'nocache'])->prefix('dashboard/admin')->name
     Route::delete('/transactions/{transaction}', [AdminTransactionController::class, 'destroy'])->name('transactions.destroy');
 });
 
-// Dashboard User — khusus yang sudah login
+// Dashboard User
 Route::middleware(['auth', 'nocache'])->prefix('dashboard/user')->name('dashboard.user.')->group(function () {
     Route::get('/products', [UserProductController::class, 'index'])->name('products');
 

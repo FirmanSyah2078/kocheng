@@ -9,7 +9,6 @@
 >
     {{ $slot }}
 
-    {{-- Underline animasi: penuh kalau active, slide-in dari kiri saat hover kalau tidak --}}
     <span
         @class([
             'absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-accent transition-all duration-300 ease-out',
