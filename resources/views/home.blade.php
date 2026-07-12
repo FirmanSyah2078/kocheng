@@ -1,7 +1,6 @@
 <x-layout>
     <x-slot:title>Meowland - Klik, Pesan, Ambil!</x-slot>
 
-    {{-- ============ HERO ============ --}}
 <section class="relative overflow-hidden min-h-[86vh] flex items-center">
     <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
     <div class="pointer-events-none absolute top-1/2 -left-32 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
@@ -70,7 +69,6 @@
     </div>
 </section>
 
-    {{-- ============ STRIP KEUNGGULAN ============ --}}
     <section class="border-y border-secondary/10 bg-white/60">
         <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="reveal flex items-start gap-3">
@@ -104,7 +102,6 @@
         </div>
     </section>
 
-    {{-- ============ KATEGORI FAVORIT ============ --}}
     <section id="kategori" class="py-24 scroll-mt-20">
         <div class="text-center mb-14 reveal">
             <p class="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Belanja Sesuai Kebutuhan</p>
@@ -135,7 +132,6 @@
         </div>
     </section>
 
-    {{-- ============ CARA KERJA ============ --}}
     <section class="py-24 bg-primary relative overflow-hidden">
         <div class="pointer-events-none absolute -bottom-20 -right-20 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
 
@@ -171,7 +167,6 @@
         </div>
     </section>
 
-    {{-- ============ TESTIMONI ============ --}}
     <section class="py-24">
         <div class="text-center mb-14 reveal">
             <p class="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Kata Mereka</p>
@@ -206,7 +201,6 @@
         </div>
     </section>
 
-    {{-- ============ CTA BANNER ============ --}}
     <section class="pb-24">
         <div class="max-w-5xl mx-auto px-6">
             <div class="reveal relative overflow-hidden bg-linear-to-br from-primary to-[#1c1428] rounded-3xl px-10 py-16 text-center">

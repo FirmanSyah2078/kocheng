@@ -5,6 +5,15 @@
         <div class="bg-white p-8 rounded-2xl shadow-sm ring-1 ring-secondary/10">
             <h1 class="font-serif text-3xl font-bold text-primary mb-6 border-t border-secondary/50 border-dashed pt-5">Detail Pembayaran</h1>
 
+        <form action="{{ route('dashboard.user.payment.store') }}" method="POST" class="space-y-6">
+            @csrf
+            <div class="grid grid-cols-3 gap-3">
+                @foreach (['qris' => 'QRIS', 'ovo' => 'OVO', 'dana' => 'DANA', 'paypal' => 'PayPal', 'bayar ditempat' => 'Bayar di Tempat'] as $value => $label)
+                    <label class="border border-black/10 rounded-xl p-4 text-center text-sm font-semibold cursor-pointer has-checked:border-accent has-checked:bg-accent/10">
+                        <input type="radio" name="payment_method" value="{{ $value }}" class="hidden" @checked($loop->first)>
+                        {{ $label }}
+                    </label>
+                @endforeach
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
                     <h3 class="text-sm uppercase tracking-wider text-secondary font-semibold mb-1">Tanggal Invoice</h3>

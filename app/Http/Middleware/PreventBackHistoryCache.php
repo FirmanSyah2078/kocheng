@@ -6,10 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Mencegah browser menampilkan versi cache dari halaman ber-otentikasi
- * (misalnya lewat tombol Back) setelah user logout atau session berubah.
- */
 class PreventBackHistoryCache
 {
     public function handle(Request $request, Closure $next): Response

@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!revealEls.length) return;
 
-    // Kalau browser gak support IntersectionObserver, langsung tampilkan semua.
     if (!("IntersectionObserver" in window)) {
         revealEls.forEach((el) => el.classList.add("is-visible"));
         return;

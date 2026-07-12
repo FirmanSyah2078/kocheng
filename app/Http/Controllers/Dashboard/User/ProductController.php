@@ -18,7 +18,7 @@ class ProductController extends Controller
             $query->whereHas('category', fn($q) => $q->whereIn('slug', $selected));
         }
 
-        $products = $query->paginate(12);
+        $products = $query->paginate(12)->withQueryString();
 
         $categories = Category::where('status', 'active')->get();
 

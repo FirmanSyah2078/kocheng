@@ -1,7 +1,6 @@
 <footer class="bg-primary text-white mt-auto border-t border-white/10">
     <div class="container mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
 
-        {{-- Brand --}}
         <div class="md:col-span-2">
             <p class="font-serif text-2xl text-accent mb-3">Meowland<span class="text-white">.</span></p>
             <p class="text-sm text-white/60 max-w-sm leading-relaxed">
@@ -39,7 +38,6 @@
             </div>
         </div>
 
-        {{-- Navigasi --}}
         <div>
             <p class="text-sm font-semibold text-white mb-4 tracking-wide uppercase">Navigasi</p>
             <ul class="space-y-2 text-sm text-white/60">
@@ -49,7 +47,6 @@
             </ul>
         </div>
 
-        {{-- Kontak --}}
         <div>
             <p class="text-sm font-semibold text-white mb-4 tracking-wide uppercase">Kontak</p>
             <ul class="space-y-2 text-sm text-white/60">
