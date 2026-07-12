@@ -4,7 +4,8 @@
     <div class="max-w-7xl mx-auto px-6 py-10">
 
         @if (session('success'))
-            <div id="cart-alert-container" class="added-cart-indicator fixed right-0 z-50 left-0 group pointer-events-none">
+            <div id="cart-alert-container"
+                class="added-cart-indicator fixed right-0 z-50 left-0 group pointer-events-none">
                 <div
                     class="w-fit h-fit p-5 rounded-2xl bg-primary text-white absolute right-10 top-4 transition-all duration-500 ease-in-out opacity-0 translate-x-full invisible group-[.success]:opacity-100 group-[.success]:visible group-[.success]:translate-x-0 shadow-lg">
                     <p>{{ session('success') }}</p>
@@ -69,6 +70,9 @@
             @empty
                 <p class="text-secondary col-span-full text-center py-12">Belum ada produk di kategori ini.</p>
             @endforelse
+        </div>
+        <div class="mt-6">
+            {{ $products->withQueryString()->links() }}
         </div>
     </div>
 </x-layout>

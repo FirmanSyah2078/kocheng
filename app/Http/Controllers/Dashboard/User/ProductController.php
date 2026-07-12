@@ -15,12 +15,13 @@ class ProductController extends Controller
         $selected = $request->input('categories', []);
 
         if (! empty($selected)) {
-            $query->whereHas('category', fn ($q) => $q->whereIn('slug', $selected));
+            $query->whereHas('category', fn($q) => $q->whereIn('slug', $selected));
         }
 
-        $products = $query->get();
+        $products = $query->paginate(12)->withQueryString();
+
         $categories = Category::where('status', 'active')->get();
 
-        return view('dashboard.user.products', compact('products', 'categories'));
+        return view('dashboard.user.products', compact('products', 'categories', 'selected'));
     }
 }

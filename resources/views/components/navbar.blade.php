@@ -11,7 +11,7 @@
 
         <div class="flex items-center justify-center gap-8">
             @if ($inDashboard && auth()->check() && ! auth()->user()->isAdmin())
-                <x-nav-link href="{{ route('dashboard.user.products') }}" :active="request()->routeIs('dashboard.user.products')">Kategori</x-nav-link>
+                <x-nav-link href="{{ route('dashboard.user.products') }}" :active="request()->routeIs('dashboard.user.products')">Katalog</x-nav-link>
             @elseif (! $inDashboard)
                 <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-link>
                 <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">About</x-nav-link>
