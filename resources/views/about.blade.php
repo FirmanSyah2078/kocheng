@@ -16,7 +16,6 @@
         </div>
     </section>
 
-    {{-- ============ TIM KAMI ============ --}}
 <section class="py-15">
     <div class="text-center mb-14 reveal">
         <p class="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Di Balik Layar</p>
@@ -26,8 +25,6 @@
 
     <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         @php
-            // Taruh foto di public/src/{slug}.png. Kalau file belum ada,
-            // otomatis fallback ke ikon cakar kucing.
             $team = [
                 ['slug' => 'abad', 'name' => 'Abad'],
                 ['slug' => 'fadil', 'name' => 'Fadil'],
@@ -46,7 +43,7 @@
                         <img
                             src="{{ asset("src/{$member['slug']}.png") }}"
                             alt="{{ $member['name'] }}"
-                            class="w-full h-full object-cover"
+                            class="w-full h-full object-cover object-top"
                         >
                     @else
                         <span class="icon-[mdi--paw] text-4xl text-accent/50"></span>
