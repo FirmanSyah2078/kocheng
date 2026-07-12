@@ -1,11 +1,10 @@
 <x-layout>
     <div class="w-full flex justify-center items-center p-10 flex-col">
         <x-slot:title>Edit Kategori</x-slot>
-        <div class="w-full mb-5">
 
+        <div class="w-full mb-5">
             <a href="{{ route('dashboard.admin.index', ['tab' => 'categories']) }}"
                 class="text-sm text-secondary hover:text-primary">&larr; Kembali</a>
-
         </div>
 
         <div class="max-w-md bg-white p-6 rounded-2xl shadow-sm border-t-4 border-accent">
