@@ -1,7 +1,13 @@
 <x-layout>
-    <x-slot:title>Edit User</x-slot>
+    <div class="w-full flex justify-center items-center p-10 flex-col">
+        <x-slot:title>Edit User</x-slot>
+        <div class="w-full mb-5">
 
-        <div class="flex border">
+            <a href="{{ route('dashboard.admin.index', ['tab' => 'users']) }}"
+                class="text-sm text-secondary hover:text-primary">&larr; Kembali</a>
+
+        </div>
+        <div class="flex ">
             <div class="max-w-md bg-red p-6 rounded-2xl shadow-sm border-t-4 border-accent">
                 <form action="{{ route('dashboard.admin.users.update', $data) }}" method="POST" class="space-y-5">
                     @csrf @method('PUT')
@@ -34,4 +40,5 @@
                 </form>
             </div>
         </div>
+    </div>
 </x-layout>

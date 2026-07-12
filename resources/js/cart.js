@@ -25,4 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
         element.classList.remove("ring-secondary/30");
         element.classList.add("ring-primary", "bg-primary/5");
     };
+
+    function selectPayment(method, element) {
+        // Update hidden input
+        document.getElementById("selected-payment").value = method;
+
+        // Update display text
+        document.getElementById("display-payment-method").innerText =
+            method.toUpperCase();
+
+        // Update UI buttons
+        document.querySelectorAll(".payment-option").forEach((btn) => {
+            btn.classList.remove("ring-primary", "bg-primary/5");
+            btn.classList.add("ring-secondary/30", "bg-white");
+        });
+
+        element.classList.remove("ring-secondary/30", "bg-white");
+        element.classList.add("ring-primary", "bg-primary/5");
+    }
 });

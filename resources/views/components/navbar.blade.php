@@ -16,7 +16,7 @@
         <div class="flex items-center justify-center gap-8">
             @if ($inDashboard && auth()->check() && ! auth()->user()->isAdmin())
                 {{-- Dashboard user --}}
-                <x-nav-link href="{{ route('dashboard.user.products') }}" :active="request()->routeIs('dashboard.user.products')">Kategori</x-nav-link>
+                <x-nav-link href="{{ route('dashboard.user.products') }}" :active="request()->routeIs('dashboard.user.products')">Katalog</x-nav-link>
             @elseif (! $inDashboard)
                 {{-- Halaman publik: selalu tampil, mau login atau tidak --}}
                 <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">Home</x-nav-link>

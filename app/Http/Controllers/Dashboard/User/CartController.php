@@ -22,8 +22,18 @@ class CartController extends Controller
 
     public function addToCart(Product $product)
     {
+        if ($product->stock <= 0) {
+            return back()->with('error', 'Maaf, stok produk ini sudah habis.');
+        }
+
         $cart = session('cart', []);
-        $cart[$product->id] = ($cart[$product->id] ?? 0) + 1;
+        $currentQty = $cart[$product->id] ?? 0;
+
+        if ($currentQty >= $product->stock) {
+            return back()->with('error', "Maaf, Anda tidak bisa menambah lebih dari {$product->stock} item.");
+        }
+
+        $cart[$product->id] = $currentQty + 1;
         session(['cart' => $cart]);
 
         return back()->with('success', 'Produk ditambahkan ke keranjang.');
@@ -38,6 +48,9 @@ class CartController extends Controller
         }
 
         if ($action === 'plus') {
+            if ($cart[$product->id] >= $product->stock) {
+                return back()->with('error', "Maaf, stok maksimal adalah {$product->stock} item.");
+            }
             $cart[$product->id]++;
         } elseif ($action === 'minus' && $cart[$product->id] > 1) {
             $cart[$product->id]--;
